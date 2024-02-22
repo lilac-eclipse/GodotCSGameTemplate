@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7865q6k00b5w"]
+
+[ext_resource type="PackedScene" uid="uid://deb4i8gr1lf3y" path="res://scenes/overworld/overworld.tscn" id="1_7v44w"]
+[ext_resource type="Script" path="res://scenes/main/Main.cs" id="1_b2hbg"]
+[ext_resource type="Script" path="res://scenes/main/SceneManager.cs" id="2_o8pvy"]
+[ext_resource type="PackedScene" uid="uid://cevrd3ucuipd6" path="res://menus/dialogue/dialogue.tscn" id="3_7cjqh"]
+[ext_resource type="Script" path="res://scenes/main/UiManager.cs" id="4_vj3jr"]
+[ext_resource type="PackedScene" uid="uid://dgwdue6i4a80v" path="res://menus/conversation/conversation.tscn" id="5_5tfsa"]
+[ext_resource type="PackedScene" uid="uid://b8ha7l0tfd6ii" path="res://menus/main_menu/main_menu.tscn" id="5_jdjjw"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_b2hbg")
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("2_o8pvy")
+
+[node name="Overworld" parent="SceneManager" instance=ExtResource("1_7v44w")]
+visible = false
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("4_vj3jr")
+
+[node name="MainMenu" parent="UIManager" instance=ExtResource("5_jdjjw")]
+unique_name_in_owner = true
+
+[node name="Conversation" parent="UIManager" instance=ExtResource("5_5tfsa")]
+visible = false
+
+[node name="Dialogue" parent="UIManager" instance=ExtResource("3_7cjqh")]
+visible = false
