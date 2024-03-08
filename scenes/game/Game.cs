@@ -1,13 +1,14 @@
+using CSGameTemplate.globals;
 using Godot;
 
 namespace CSGameTemplate.scenes.game;
 
 public partial class Game : Control
 {
+	private GameState GameState => SaveDataWrapper.Instance.SaveData.GameState;
+	
 	private Label _countLabel;
 	private Button _incrButton;
-
-	private int _count = 0;
 	
 	public override void _Ready()
 	{
@@ -20,12 +21,13 @@ public partial class Game : Control
 
 	private void IncrButtonOnPressed()
 	{
-		_count += 1;
+		GameState.Count += 1;
 		UpdateCountLabel();
+		SaveDataWrapper.Instance.Save(); // TODO move save logic elsewhere
 	}
 
 	private void UpdateCountLabel()
 	{
-		_countLabel.Text = "Count: " + _count;
+		_countLabel.Text = "Count: " + GameState.Count;
 	}
 }

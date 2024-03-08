@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://globals/Logger.cs" id="1_itrhv"]
 [ext_resource type="Script" path="res://globals/Events.cs" id="2_dsdli"]
 [ext_resource type="Script" path="res://globals/UiManager.cs" id="2_ym0qt"]
-[ext_resource type="PackedScene" uid="uid://do03ljjynar86" path="res://scenes/game/game.tscn" id="4_j2yg3"]
+[ext_resource type="Script" path="res://globals/SaveDataWrapper.cs" id="3_yyw7u"]
 [ext_resource type="PackedScene" uid="uid://b8ha7l0tfd6ii" path="res://menus/main_menu/main_menu.tscn" id="5_jdjjw"]
 
 [node name="Main" type="Node"]
@@ -15,12 +15,11 @@ script = ExtResource("1_itrhv")
 [node name="Events" type="Node" parent="."]
 script = ExtResource("2_dsdli")
 
+[node name="SaveDataWrapper" type="Node" parent="."]
+script = ExtResource("3_yyw7u")
+
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_0vkwu")
-
-[node name="Game" parent="SceneManager" instance=ExtResource("4_j2yg3")]
-unique_name_in_owner = true
-visible = false
 
 [node name="UIManager" type="Node" parent="."]
 script = ExtResource("2_ym0qt")
