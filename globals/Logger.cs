@@ -2,22 +2,13 @@ using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Godot;
-using Microsoft.VisualBasic;
 
-namespace globals;
+namespace CSGameTemplate.globals;
 
 public partial class Logger : Node
 {
 
     public LogLevel ActiveLogLevel { get; set; } = LogLevel.Debug; // Level that will be written
-    
-    // Singleton logic
-    public static Logger Instance { get; private set; }
-    public override void _EnterTree()
-    {
-        if (Instance != null) QueueFree(); // The Singleton is already loaded, kill this instance
-        Instance = this;
-    }
     
     public void Debug(string message, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
     {
@@ -44,7 +35,7 @@ public partial class Logger : Node
         if (level < ActiveLogLevel) return;
         
         // Ex: 20:18:35.140 [INFO] ClassName.cs:42 - message
-        var className = filePath.Split("\\").Last();
+        var className = filePath.Split("\\").Last().Split("/").Last();
         var msg = $"{DateTime.Now:HH:mm:ss.fff} [{level}] {className}:{lineNumber} - {format}";
 
         switch (level)
@@ -64,6 +55,14 @@ public partial class Logger : Node
                 GD.PushError(msg);
                 break;
         }
+    }
+    
+    // Singleton logic
+    public static Logger Instance { get; private set; }
+    public override void _EnterTree()
+    {
+        if (Instance != null) QueueFree(); // The Singleton is already loaded, kill this instance
+        Instance = this;
     }
 }
 

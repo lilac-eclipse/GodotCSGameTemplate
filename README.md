@@ -6,14 +6,22 @@ This is a small repo with the basic files needed to create a C# based game in go
 ## Creating a new game from this template
 
 1. Clone/fork this repo and rename
-2. Create a new Godot project in the same directory
-3. Setup C# SLN file
+2. Delete the following folders:
+   1. `.git`
+   2. `.godot`
+   3. `.idea`
+3. Delete the following files:
+   1. `CSGameTemplate.csproj`
+   2. `CSGameTemplate.sln`
+4. Setup C# SLN file:
 
 Go to Project > Tools > C# > Create C# Solution
 
 Then open the solution within Rider, and ensure you have the Godot plugin installed.
 
 It should automatically load the Godot interface, but if it doesn't (which it didn't for me) you can right click the .sln file within Rider and open it (even if the project is already open). It should then detect it and work.
+5. Open project in Rider
+6. Perform find and replace for CSGameTemplate -> `YourRootDirName` (which should also be `GameName`)
 
 ## Project structure
 Adapted from: https://www.reddit.com/r/godot/comments/7786ee/what_the_best_folder_structure_for_developement/

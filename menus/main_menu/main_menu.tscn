@@ -26,34 +26,17 @@ text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="IPLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "IP loading..."
-horizontal_alignment = 1
+text = "Start New Game"
 
-[node name="HostButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="LoadButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Host"
+text = "Load Game"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="JoinRemoteButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Join Server"
-
-[node name="JoinLocalButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Join Localhost"
-
-[node name="AddressEntry" type="LineEdit" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-placeholder_text = "Enter Address to Join Here"
-alignment = 1
+text = "Exit"
