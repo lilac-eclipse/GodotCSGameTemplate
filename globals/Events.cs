@@ -14,7 +14,7 @@ public partial class Events : Node
     
     // Lifecycle signals
     [Signal]
-    public delegate void LifecycleStartGameEventHandler();
+    public delegate void LifecycleStartGameRequestedEventHandler();
     
     
     // Define singleton logic

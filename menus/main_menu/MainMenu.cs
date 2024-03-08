@@ -1,3 +1,4 @@
+using CSGameTemplate.globals;
 using Godot;
 
 namespace CSGameTemplate.menus.main_menu;
@@ -17,11 +18,13 @@ public partial class MainMenu : CanvasLayer
         _startButton.Pressed += OnStartButtonPressed;
         _loadButton.Pressed += OnLoadButtonPressed;
         _exitButton.Pressed += OnExitButtonPressed;
+
+        _loadButton.Disabled = true;
     }
     
     private void OnStartButtonPressed()
     {
-        
+        Events.Instance.EmitSignal(Events.SignalName.LifecycleStartGameRequested);
     }
     
     private void OnLoadButtonPressed()

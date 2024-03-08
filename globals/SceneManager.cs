@@ -4,17 +4,20 @@ namespace CSGameTemplate.globals;
 
 public partial class SceneManager : Node
 {
-    // private Node2D _overworld;
-    // private PackedScene _player = GD.Load<PackedScene>("res://entities/player/player.tscn");
+    private Control _game;
     
     public override void _Ready()
     {
-        // _overworld = GetNode<Node2D>("Overworld");
+        _game = GetNode<Control>("%Game");
 
-        // Events.Instance.LifecycleStartGame += OnLifecycleStartGame;
-        // Events.Instance.LifecycleEnterWorld += OnLifecycleEnterWorld;
+        Events.Instance.LifecycleStartGameRequested += InstanceOnLifecycleStartGameRequested;
     }
-    
+
+    private void InstanceOnLifecycleStartGameRequested()
+    {
+        _game.Show();
+    }
+
     // Define singleton logic
     public static SceneManager Instance { get; private set; }
     public override void _EnterTree()

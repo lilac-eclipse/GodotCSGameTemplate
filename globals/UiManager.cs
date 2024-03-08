@@ -10,16 +10,10 @@ public partial class UiManager : Node
 	{
 		_mainMenu = GetNode<CanvasLayer>("%MainMenu");
 
-		Events.Instance.LifecycleStartGame += OnLifecycleStartGame;
-		// Events.Instance.LifecycleEnterWorld += OnLifecycleEnterWorld;
+		Events.Instance.LifecycleStartGameRequested += OnLifecycleStartGameRequested;
 	}
 
-	private void OnLifecycleStartGame()
-	{
-		_mainMenu.Show();
-	}
-
-	private void OnLifecycleEnterWorld()
+	private void OnLifecycleStartGameRequested()
 	{
 		_mainMenu.Hide();
 	}

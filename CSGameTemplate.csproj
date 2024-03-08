@@ -6,6 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="scenes\game\" />
     <Folder Include="scenes\main\" />
   </ItemGroup>
 </Project>
